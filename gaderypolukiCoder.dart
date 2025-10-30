@@ -1,4 +1,6 @@
 String encoder(String originalStr) {
+
+  //Map for coding GADERYPOLUKI
   const Map<String, String> codeMap = {
   'g': 'a', 'a': 'g',
   'd': 'e', 'e': 'd',
@@ -7,13 +9,15 @@ String encoder(String originalStr) {
   'l': 'u', 'u': 'l',
   'k': 'i', 'i': 'k',
   };
+
+
   String encodedStr = '';
 
-  //look at first letter > change it to corresponding > move to the next one > change > move on
-
+//Encoding / Decoding 
   for (var i = 0; i < originalStr.length; i++) {
     encodedStr += codeMap[originalStr[i]] ?? originalStr[i];
   }
-
+  
+//Return Encoded / Decoded string
   return encodedStr;
 }
