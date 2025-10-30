@@ -8,8 +8,6 @@ void main() {
   String encodedString = '';
 
   if (originalStr.isNotEmpty) {
-    print('Your string: $originalStr');
-
     encodedString = encoder(originalStr);
   } else {
     print('No input provided.');
