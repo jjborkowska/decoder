@@ -2,19 +2,16 @@ import 'dart:io';
 import 'gaderypolukiCoder.dart';
 
 void main() {
-//Entering the string
   print('Enter your string: ');
-  String ?originalStr = stdin.readLineSync()!;
+  String? originalStr = stdin.readLineSync();
 
-  String encodedString = '';
-
-//Encoding the string
-  if (originalStr.isNotEmpty) {
-    encodedString = encoder(originalStr);
-  } else {
+//Validate if input isn't empty/null before proceeding
+  if (originalStr == null || originalStr.isEmpty) {
     print('No input provided.');
+    return;
   }
+
+  final encodedString = encoder(originalStr);
   
-//Encoded string display
   print(encodedString);
 }
