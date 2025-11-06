@@ -1,17 +1,27 @@
 import 'dart:io';
-import 'gaderypolukiCoder.dart';
+import 'cipherLib.dart';
 
 void main() {
-  print('Enter your string: ');
-  String? originalStr = stdin.readLineSync();
-
-//Validate if input isn't empty/null before proceeding
-  if (originalStr == null || originalStr.isEmpty) {
-    print('No input provided.');
-    return;
+  // Validate if input isn't empty/null
+  validator(userInput) {
+    if (userInput == null || userInput.isEmpty) {
+      print('No input provided.');
+      userInput = stdin.readLineSync();
+      return validator(userInput);
+    } else {
+      return userInput;
+    }
   }
 
-  final encodedString = encoder(originalStr);
-  
-  print(encodedString);
+  print('Cipher you want to use: ');
+  String? cipher = stdin.readLineSync();
+
+  print('Enter your string: ');
+  String? originalStr = stdin.readLineSync();
+  originalStr = validator(originalStr);
+
+  final encoded = code(cipher, originalStr);
+
+  print('Your encoded string: \n$encoded');
+
 }
